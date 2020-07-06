@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import '../App.css';
+//Components
 import ProductTile from './ProductTile';
 import Pagination from './Pagination';
+import Modal from './Modal';
+//Test Data
 import dummyData from '../dummyData';
 
 class Products extends Component {
@@ -16,6 +19,7 @@ class Products extends Component {
             data : []
         };
         this.paginate = this.paginate.bind(this);
+        this.isSelected = this.isSelected.bind(this);
     }
     async componentDidMount(){
         /*
@@ -46,9 +50,21 @@ class Products extends Component {
     assignPrice(min, max){
         return Math.round(Math.random() * (max - min)) + '.' + Math.round(Math.random() * (99 - 0));
     }
-    //TODO: Add selected property to each product
-    isSelected(selected, name){
 
+    isSelected(selected, id){
+        console.log('selected ' + selected  + ' id '+ id);
+        let newArray = this.state.data.map(obj =>{
+            let temp = Object.assign({}, obj)
+            if(temp.id === id){
+                console.log('obj sel' + !obj.selected);
+                temp.selected = !obj.selected;
+            }
+            return temp;
+        })
+        this.setState( {
+           data : [...newArray]
+
+        });
     }
     paginate(pageNumber){
         const indexOfLastPost = pageNumber * this.state.postsPerPage;
@@ -66,8 +82,12 @@ class Products extends Component {
             return 'Loading...';
         }
         const product = this.state.data.slice(this.state.indexOfFirstPost, this.state.indexOfLastPost);
+        const selectedProduct = this.state.data.filter(e => e.selected ? e : null);
         return (
             <div>
+                <Modal  isSelected={this.isSelected} 
+                        selectedProduct={selectedProduct}
+                />
                 <Pagination totalPosts={this.state.data.length} 
                             postsPerPage={this.state.postsPerPage}
                             currentPage={this.state.currentPage}
@@ -76,6 +96,7 @@ class Products extends Component {
                 </Pagination>
                 <ProductTile 
                     products={product}
+                    isSelected={this.isSelected}
                 />
             </div>
         )
