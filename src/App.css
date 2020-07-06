@@ -13,19 +13,28 @@
 }
 .product-tile{
   display: grid;
-  margin-bottom: 30px;
+  margin: 30px;
   grid-template-columns: 100%;
   grid-template-rows: 120px auto 20px;
   border-radius: 5px;
   max-width: 200px;
 }
-
+img{
+  margin: 0 auto;
+}
 .price{
   font-weight: bold;
+  text-align: center;
 }
 
 button {
   height: 30px;
+}
+
+.remove {
+  align-self: center;
+  text-align: center;
+  color: orange;
 }
 /************************************************** Product */
 
@@ -34,6 +43,7 @@ button {
 /************************************************** Pagination */
 nav {
  display: flex;
+ margin-top: 20px;
  justify-content: space-evenly; 
 }
 ul { 
@@ -52,7 +62,8 @@ ul {
  /************************************************** Shopping Cart */
 
  .shopping-cart{
-   display: inline;
+   display: inline;  
+   margin-left: 10px;
    padding: 5px;
    border: solid 2px black;
  }

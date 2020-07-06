@@ -46,17 +46,15 @@ class Products extends Component {
             data : data
         })
     }
-
+    
     assignPrice(min, max){
         return Math.round(Math.random() * (max - min)) + '.' + Math.round(Math.random() * (99 - 0));
     }
 
     isSelected(selected, id){
-        console.log('selected ' + selected  + ' id '+ id);
         let newArray = this.state.data.map(obj =>{
             let temp = Object.assign({}, obj)
             if(temp.id === id){
-                console.log('obj sel' + !obj.selected);
                 temp.selected = !obj.selected;
             }
             return temp;

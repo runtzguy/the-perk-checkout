@@ -31,7 +31,7 @@ class ItemModal extends Component {
             <tr className="modal-item">
                 <td>{this.state.title}</td>
                 <td>${this.state.price}</td>
-                <td onClick={this.isSelected}>X</td>
+                <td className="remove" onClick={this.isSelected}>X</td>
             </tr>
         )
     }
