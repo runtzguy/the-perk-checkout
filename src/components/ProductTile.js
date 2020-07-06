@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../App.css';
-import { isTryStatement } from '@babel/types';
 
 class ProductTile extends Component {
     constructor(props){
@@ -13,7 +12,7 @@ class ProductTile extends Component {
     render(){
         const product = this.props.products;
         return(
-            <div>
+            <div className="products">
                 {product.map(item => 
                     <div className="product-tile" key={item.id}> 
                         <h3>{item.title}</h3>

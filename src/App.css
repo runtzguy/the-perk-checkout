@@ -5,8 +5,15 @@
   box-sizing: border-box;
 }
 /************************************************** Product Tile */
+.products{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap; 
+  padding: 20px;
+}
 .product-tile{
   display: grid;
+  margin-bottom: 30px;
   grid-template-columns: 100%;
   grid-template-rows: 120px auto 20px;
   border-radius: 5px;
@@ -18,9 +25,7 @@
 }
 
 /************************************************** Product */
-.products{
 
-}
 
 
 /************************************************** Pagination */

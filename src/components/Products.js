@@ -67,7 +67,7 @@ class Products extends Component {
         }
         const product = this.state.data.slice(this.state.indexOfFirstPost, this.state.indexOfLastPost);
         return (
-            <div className="products">
+            <div>
                 <Pagination totalPosts={this.state.data.length} 
                             postsPerPage={this.state.postsPerPage}
                             currentPage={this.state.currentPage}
