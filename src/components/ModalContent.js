@@ -9,9 +9,17 @@ import ItemModal from './ItemModal';
 //import Checkout from './Checkout';
 
 export class ModalContent extends Component {
+  constructor(){
+    super();
+    this.state = {
+      total : ""
+    }
+  }
   render() {
-    let selectedProduct = this.props.selectedProduct;
-    console.log(selectedProduct);
+    const selectedProduct = this.props.selectedProduct;
+    let total = 0;
+    selectedProduct.forEach(element => total += parseFloat(element.price));
+    total = Math.round( total * 100) / 100;
     return ReactDOM.createPortal(
       <FocusTrap>
         <div
@@ -52,7 +60,9 @@ export class ModalContent extends Component {
                         className="item"
                       />
                   )}
+                  <div class="total">Total: ${total}</div>
                 </tbody>
+                
               </table>
               {/*
               <Checkout
