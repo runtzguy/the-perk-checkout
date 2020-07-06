@@ -22,7 +22,6 @@ class Products extends Component {
         this.isSelected = this.isSelected.bind(this);
     }
     async componentDidMount(){
-        /*
         const url = "https://jsonplaceholder.typicode.com/photos";
         const response = await fetch(url);
         const data = await response.json();
@@ -30,14 +29,15 @@ class Products extends Component {
             element['selected'] = false;
             element['price'] = this.assignPrice(0, 100);
         });
-        */
 
        //Remove dummyDat when done
+       /*
         const data = dummyData();
         data.forEach(element => {
             element['selected'] = false;
             element['price'] = this.assignPrice(0, 100);
         });
+        */
         let indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         let indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
         this.setState({
