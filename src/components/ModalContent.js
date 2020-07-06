@@ -9,12 +9,6 @@ import ItemModal from './ItemModal';
 //import Checkout from './Checkout';
 
 export class ModalContent extends Component {
-  constructor(){
-    super();
-    this.state = {
-      total : ""
-    }
-  }
   render() {
     const selectedProduct = this.props.selectedProduct;
     let total = 0;
@@ -64,11 +58,7 @@ export class ModalContent extends Component {
                 </tbody>
                 
               </table>
-              {/*
-              <Checkout
-                selectedShoes={shoes}
-              />
-              */}
+              <button class="btn-checkout">Checkout</button>
             </div>
 
           </div>
